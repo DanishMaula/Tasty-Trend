@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tasty_trend_sc/models/recipe.dart';
 import 'package:tasty_trend_sc/pages/home_page.dart';
-import 'package:tasty_trend_sc/recipe_item.dart';
+import 'package:tasty_trend_sc/item%20list/recipe_item.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: MyHomePage(),
     );

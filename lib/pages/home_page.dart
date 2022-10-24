@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tasty_trend_sc/item%20list/trending_item.dart';
+import 'package:tasty_trend_sc/utils/utils.dart';
 
 import '../models/recipe.dart';
-import '../recipe_item.dart';
+import '../item list/recipe_item.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -19,53 +21,98 @@ class _MyHomePageState extends State<MyHomePage> {
           child: SafeArea(
             child: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Profile
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
                       const CircleAvatar(
-                        radius: 30,
-                        backgroundImage: AssetImage('assets/images/profile.jpg'),
+                        radius: 35,
+                        backgroundImage:
+                            AssetImage('assets/images/profile.jpg'),
+                      ),
+                      const SizedBox(
+                        width: 10,
                       ),
                       Column(
-                        // ignore: prefer_const_literals_to_create_immutables
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            'Hello,',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                            ),
+                          Text(
+                            'Selamat Datang, Danish',
+                            style: welcomeText,
                           ),
-                          const Text(
-                            'John Doe',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                            ),
+                          Text(
+                            'Mau masak apa hari ini?',
+                            style: welcomeSubText,
                           ),
                         ],
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
+                    height: 10,
+                  ),
+
+                  // Search Bar
+                  Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: const Color(0xffE2DFDF)),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: const Center(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+
+                  Text('Trending', style: styleTitle),
+
+                  const SizedBox(height: 10),
+
+                  Container(
+                    height: 230,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        final Recipe recipe = recipeList[index];
+                        return InkWell(
+                          onTap: () {},
+                          child: TrendingItem(recipe: recipe),
+                        );
+                      },
+                      itemCount: recipeList.length,
+                    ),
+                  ),
+
+                  const SizedBox(height: 10),
+
+                  Text('Rekomendasi', style: styleTitle),
+
+                  // List untuk makanan
+                  Container(
                     height: MediaQuery.of(context).size.height,
                     child: ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          final Recipe recipe =
-                              recipeList[index];
-                          return InkWell(
-                            onTap: () {
-                            },
-                            child: RecipeItem(recipe: recipe),
-                          );
-                        },
-                        itemCount: recipeList.length,
-                      ),
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        final Recipe recipe = recipeList[index];
+                        return InkWell(
+                          onTap: () {},
+                          child: RecipeItem(recipe: recipe),
+                        );
+                      },
+                      itemCount: recipeList.length,
+                    ),
                   ),
                 ],
               ),
