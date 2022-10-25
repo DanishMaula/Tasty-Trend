@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tasty_trend_sc/item%20list/trending_item.dart';
+import 'package:tasty_trend_sc/item_list/trending_item.dart';
 import 'package:tasty_trend_sc/utils/utils.dart';
 
 import '../models/recipe.dart';
-import '../item list/recipe_item.dart';
+import '../item_list/recipe_item.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
