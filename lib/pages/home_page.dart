@@ -4,6 +4,7 @@ import 'package:tasty_trend_sc/utils/utils.dart';
 
 import '../models/recipe.dart';
 import '../item_list/recipe_item.dart';
+import 'detail_screen.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -87,7 +88,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       itemBuilder: (context, index) {
                         final Recipe recipe = recipeList[index];
                         return InkWell(
-                          onTap: () {},
+                          onTap: () {
+                           
+                          },
                           child: TrendingItem(recipe: recipe),
                         );
                       },
@@ -107,7 +110,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       itemBuilder: (context, index) {
                         final Recipe recipe = recipeList[index];
                         return InkWell(
-                          onTap: () {},
+                          onTap: () {
+                             Navigator.push(context, MaterialPageRoute(builder: (context){
+                              return DetailScreen(recipe: recipe);
+                      
+                            }));
+                          },
                           child: RecipeItem(recipe: recipe),
                         );
                       },
@@ -121,3 +129,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+

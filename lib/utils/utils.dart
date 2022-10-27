@@ -43,3 +43,21 @@ TextStyle titleTrending = GoogleFonts.poppins(
   fontSize: 14,
   fontWeight: FontWeight.w600,
 );
+
+TextStyle titleDetail = GoogleFonts.poppins(
+  color: Colors.white,
+  fontSize: 16,
+  fontWeight: FontWeight.bold,
+);
+
+TextStyle descDetail = GoogleFonts.poppins(
+  color: const Color(0xff394150),
+  fontSize: 15,
+  fontWeight: FontWeight.w500,
+);
+
+TextStyle titleBahanBahan = GoogleFonts.poppins(
+  color: const Color(0xff394150),
+  fontSize: 18,
+  fontWeight: FontWeight.w600,
+);
