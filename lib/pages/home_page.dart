@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasty_trend_sc/item_list/trending_item.dart';
+import 'package:tasty_trend_sc/models/trending.dart';
 import 'package:tasty_trend_sc/utils/utils.dart';
 
 import '../models/recipe.dart';
@@ -80,18 +81,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   Text('Trending', style: styleTitle),
 
                   const SizedBox(height: 10),
-
-                  Container(
+                  
+                  // List Trending
+                  SizedBox(
                     height: 230,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        final Recipe recipe = recipeList[index];
+                        final Trending trending = trendingList[index];
                         return InkWell(
                           onTap: () {
                            
                           },
-                          child: TrendingItem(recipe: recipe),
+                          child: TrendingItem(trending: trending,),
                         );
                       },
                       itemCount: recipeList.length,
@@ -102,8 +104,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
                   Text('Rekomendasi', style: styleTitle),
 
-                  // List untuk makanan
-                  Container(
+                  // List Recommended
+                  SizedBox(
                     height: MediaQuery.of(context).size.height,
                     child: ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),

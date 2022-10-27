@@ -50,7 +50,7 @@ class _RecipeItemState extends State<RecipeItem> {
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
+                  
                   children: <Widget>[
                     Text(
                       widget.recipe.title,
@@ -67,7 +67,7 @@ class _RecipeItemState extends State<RecipeItem> {
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 50),
+                    const SizedBox(height: 10),
                     Row(
                       children: [
                         const Icon(Icons.star, color: Colors.yellow),
